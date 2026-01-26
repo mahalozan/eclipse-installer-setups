@@ -72,7 +72,7 @@
     <description>Eclipse Bash Editor</description>
   </project>
   <project name="novumrgi"
-      label="NovumRGI">
+      label="novumrgi">
     <setupTask
         xsi:type="jdt:JRETask"
         version="JavaSE-17"
@@ -90,22 +90,17 @@
           url="https://pub.novum.rgigroup.io/p2-viewlayer/5.2.3"/>
       <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="installation.location"
-        value=""
-        defaultValue="/opt/novum/"
-        label="Installation location rule">
-      <description>The rule for the absolute folder location where the product is installed</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="workspace.location"
-        value=""
-        defaultValue="/home/medusa/eclipse-workspace"
-        label="Workspace location rule">
-      <description>The rule for the absolute folder location where the workspace is located</description>
-    </setupTask>
+    <stream
+        name="master"
+        label="master"/>
+    <description>NovumRGI Custom</description>
+  </project>
+  <project name="test.novumrgi"
+      label="Test NovumRGI">
+    <stream
+        name="master"
+        label="master"/>
+    <description>NovumRGI Custom</description>
   </project>
   <description>Custom project catalog</description>
   <logicalProjectContainer
