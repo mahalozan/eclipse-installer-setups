@@ -3,11 +3,11 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
+    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xmlns:workbench_1.0="http://www.eclipse.org/oomph/setup/workbench/1.0"
-    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
+    xmlns:workbench="http://www.eclipse.org/oomph/setup/workbench/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 https://raw.githubusercontent.com/eclipse-oomph/oomph/master/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/workbench/1.0 https://raw.githubusercontent.com/eclipse-oomph/oomph/master/setups/models/Workbench.ecore"
     name="custom.projects"
     label="custom.projects">
   <annotation
@@ -21,14 +21,14 @@
       <value>https://projects.eclipse.org/</value>
     </detail>
   </annotation>
-  <project
-      name="empty" 
+  <project name="empty"
       label="empty">
-    <stream name="master" label="master"/>
+    <stream
+        name="master"
+        label="master"/>
     <description>Empty project</description>
   </project>
-  <project
-      name="bash.editor" 
+  <project name="bash.editor"
       label="bash.editor">
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -36,8 +36,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="bashEditorUpdateSite"
-          defaultValue="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/">
-      </setupTask>
+          defaultValue="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
       <setupTask
           xsi:type="setup:RedirectionTask"
           sourceURL="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"
@@ -52,13 +51,12 @@
           label="Bash editor features"
           licenseConfirmationDisabled="true">
         <requirement
-            name="de.jcup.basheditor.feature.group"
-            versionRange="0.0.0"/>
+            name="de.jcup.basheditor.feature.group"/>
         <repository
             url="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
       </setupTask>
       <setupTask
-          xsi:type="workbench_1.0:FileAssociationsTask">
+          xsi:type="workbench:FileAssociationsTask">
         <mapping
             filePattern="*.bash"
             defaultEditorID="de.jcup.basheditor.BashEditor"/>
@@ -68,45 +66,48 @@
         <description>Association of editor with Bash files</description>
       </setupTask>
     </setupTask>
-    <stream name="master" label="master"/>
+    <stream
+        name="master"
+        label="master"/>
     <description>Eclipse Bash Editor</description>
   </project>
-  <project
-      name="oomph.console" 
-      label="oomph.console">
+  <project name="novumrgi"
+      label="NovumRGI">
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Redirect Update Site">
-      <setupTask
-          xsi:type="setup:VariableTask"
-          name="oomph.console.updatesite"
-          defaultValue="https://a-langer.github.io/eclipse-oomph-console-site/">
-      </setupTask>
-      <setupTask
-          xsi:type="setup:RedirectionTask"
-          sourceURL="https://a-langer.github.io/eclipse-oomph-console-site/"
-          targetURL="${oomph.console.updatesite}"/>
-      <description>Change Update Site, ex.: -Doomph.console.updatesite=https://mysite/eclipse-oomph-console/</description>
+        xsi:type="jdt:JRETask"
+        version="JavaSE-17"
+        location="/home/medusa/.sdkman/candidates/java/current/"
+        name="JDK_OpenEJB"
+        vmArguments="-Djava.io.tmpdir=/tmp -Dopenejb=true -Xms2048m -Xmx4096m">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Install Console Oomph plugin">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Console Oomph features"
-          licenseConfirmationDisabled="true">
-        <requirement
-            name="org.eclipse.oomph.console.feature.feature.group"
-            versionRange="0.0.0"/>
-        <repository
-            url="https://a-langer.github.io/eclipse-oomph-console-site/"/>
-      </setupTask>
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="de.novum.vger.viewlayer.dsl.sdk.feature.group"
+          versionRange="[5.2.0,6.3.0)"/>
+      <repository
+          url="https://pub.novum.rgigroup.io/p2-viewlayer/5.2.3"/>
+      <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
     </setupTask>
-    <stream name="master" label="master"/>
-    <description>Console Oomph plugin</description>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="installation.location"
+        value=""
+        defaultValue="/opt/novum/"
+        label="Installation location rule">
+      <description>The rule for the absolute folder location where the product is installed</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="workspace.location"
+        value=""
+        defaultValue="/home/medusa/eclipse-workspace"
+        label="Workspace location rule">
+      <description>The rule for the absolute folder location where the workspace is located</description>
+    </setupTask>
   </project>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="org.eclipse.setup#//@projectCatalogs[name='custom.projects']"/>
   <description>Custom project catalog</description>
+  <logicalProjectContainer
+      href="org.eclipse.setup#//@projectCatalogs[name='custom.projects']"/>
 </setup:ProjectCatalog>
