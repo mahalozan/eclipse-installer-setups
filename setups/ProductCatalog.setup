@@ -736,8 +736,7 @@
       </annotation>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse IDE for Enterprise Java and Web Developers (2025-09)"
-          licenseConfirmationDisabled="true">
+          label="Eclipse IDE for Enterprise Java and Web Developers (2025-09)">
         <requirement
             name="epp.package.jee"
             versionRange="[4.37.0,5.0.0)"
@@ -1308,8 +1307,7 @@
       </annotation>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse IDE for Enterprise Java and Web Developers (2025-09)"
-          licenseConfirmationDisabled="true">
+          label="Eclipse IDE for Enterprise Java and Web Developers (2025-09)">
         <requirement
             name="epp.package.jee"
             versionRange="[4.37.0,5.0.0)"
