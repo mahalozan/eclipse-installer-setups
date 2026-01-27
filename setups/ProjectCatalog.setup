@@ -39,7 +39,8 @@
       <description>The rule for the absolute folder location where the workspace is located</description>
     </setupTask>
     <setupTask
-        xsi:type="setup.p2:P2Task">
+        xsi:type="setup.p2:P2Task"
+        licenseConfirmationDisabled="true">
       <requirement
           name="de.novum.vger.viewlayer.dsl.sdk.feature.group"
           versionRange="[5.2.0,6.3.0)"/>
