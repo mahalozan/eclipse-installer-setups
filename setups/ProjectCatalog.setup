@@ -3,10 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xmlns:workbench="http://www.eclipse.org/oomph/setup/workbench/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/workbench/1.0 https://raw.githubusercontent.com/eclipse-oomph/oomph/master/setups/models/Workbench.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 https://raw.githubusercontent.com/eclipse-oomph/oomph/master/setups/models/JDT.ecore"
     name="custom.projects"
     label="custom.projects">
   <annotation
@@ -20,65 +20,3005 @@
       <value>https://projects.eclipse.org/</value>
     </detail>
   </annotation>
-  <project href="https://raw.githubusercontent.com/eclipse/birt/master/build/org.eclipse.birt.releng/BIRT.setup#/"/>
-  <project name="empty"
-      label="empty">
-    <stream
-        name="master"
-        label="master"/>
-    <description>Empty project</description>
-  </project>
-  <project name="bash.editor"
-      label="bash.editor">
+  <project name="com.rgigroup.project"
+      label="NovumRGI Project">
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Redirect Update Site">
-      <setupTask
-          xsi:type="setup:VariableTask"
-          name="bashEditorUpdateSite"
-          defaultValue="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
-      <setupTask
-          xsi:type="setup:RedirectionTask"
-          sourceURL="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"
-          targetURL="${bashEditorUpdateSite}"/>
-      <description>Change Update Site, ex.: -DbashEditorUpdateSite=https://mysite/basheditor/</description>
+        xsi:type="jdt:JRETask"
+        version="JavaSE-17"
+        location="/home/medusa/.sdkman/candidates/java/current/"
+        name="JDK_OpenEJB"
+        vmArguments="-Djava.io.tmpdir=/tmp -Dopenejb=true -Xms2048m -Xmx4096m">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Install Bash editor">
+        name="launch.configurations">
       <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Bash editor features"
-          licenseConfirmationDisabled="true">
-        <requirement
-            name="de.jcup.basheditor.feature.group"/>
-        <repository
-            url="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
+          xsi:type="setup:ResourceCreationTask"
+          force="true"
+          targetURL="${workspace.location|uri}/.metadata/.plugins\org.eclipse.debug.ui/launchConfigurationHistory.xml"
+          encoding="UTF-8">
+        <description>launchConfigurationHistory</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchHistory>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;Tomcat 8788 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;WildFly 8787 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                  &lt;/favorites>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.profile&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.eclemma.ui.launchGroup.coverage&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.ui.externaltools.launchGroup&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.run&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN clean&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN HibernateSchemaCreate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (no hibernate update)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, -DskipTest)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN Run Acceptance Tests&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN test (single class)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations create&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations sort&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations merge&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations integrate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                  &lt;/favorites>
+              &lt;/launchGroup>
+          &lt;/launchHistory>
+
+        </content>
       </setupTask>
       <setupTask
-          xsi:type="workbench:FileAssociationsTask">
-        <mapping
-            filePattern="*.bash"
-            defaultEditorID="de.jcup.basheditor.BashEditor"/>
-        <mapping
-            filePattern="*.sh"
-            defaultEditorID="de.jcup.basheditor.BashEditor"/>
-        <description>Association of editor with Bash files</description>
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN clean.launch"
+          encoding="UTF-8">
+        <description>MVN clean</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;4&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute
+                  key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot;
+                  value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN HibernateSchemaCreate.launch"
+          encoding="UTF-8">
+        <description>MVN HibernateSchemaCreate</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean process-classes&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;HibernateSchemaCreate&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (no hibernate update).launch"
+          encoding="UTF-8">
+        <description>MVN install (no hibernate update)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;hibernate_schema_update_disabled&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, -DskipTest).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, -DskipTest)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
+                  &lt;listEntry value=&quot;skipTests=true&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests) (!VgerAI).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, skip tests) (!VgerAI)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, skip tests)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests) (!VgerAI).launch"
+          encoding="UTF-8">
+        <description>MVN install (skip tests) (!VgerAI)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests).launch"
+          encoding="UTF-8">
+        <description>MVN install (skip tests)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install.launch"
+          encoding="UTF-8">
+        <description>MVN install</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN Run Acceptance Tests.launch"
+          encoding="UTF-8">
+        <description>MVN Run Acceptance Tests</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;RunAcceptanceTests&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN test (single class).launch"
+          encoding="UTF-8">
+        <description>MVN test (single class)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;test&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
+                  &lt;listEntry value=&quot;novum.debug=true&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations create.launch"
+          encoding="UTF-8">
+        <description>MVN translations create</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:create&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations integrate.launch"
+          encoding="UTF-8">
+        <description>MVN translations integrate</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:integrate&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations merge.launch"
+          encoding="UTF-8">
+        <description>MVN translations merge</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:merge&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations sort.launch"
+          encoding="UTF-8">
+        <description>MVN translations sort</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:sort&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/Tomcat 8788 debug.launch"
+          encoding="UTF-8">
+        <description>Tomcat 8788 debug</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
+              &lt;/listAttribute>
+              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
+              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
+                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
+                  &lt;mapEntry key=&quot;port&quot; value=&quot;8788&quot;/>
+              &lt;/mapAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/WildFly 8787 debug.launch"
+          encoding="UTF-8">
+        <description>WildFly 8787 debug</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
+              &lt;/listAttribute>
+              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
+              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
+                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
+                  &lt;mapEntry key=&quot;port&quot; value=&quot;8787&quot;/>
+              &lt;/mapAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <description>Creating Launch Configurations</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="de.novum.vger.viewlayer.dsl.sdk.feature.group"
+          versionRange="[5.2.0,6.3.0)"/>
+      <repository
+          url="https://pub.novum.rgigroup.io/p2-viewlayer/5.2.3"/>
+      <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="User Preferences">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/UserPreferences"/>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.jdt.core">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/enableParallelJavaIndexSearch"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.annotationPath.allLocations"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.cleanOutputFolder"
+            value="clean"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.duplicateResourceTask"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.invalidClasspath"
+            value="abort"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.recreateModifiedClassFileInOutputFolder"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.resourceCopyExclusionFilter"
+            value="*.launch"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.circularClasspath"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpath.exclusionPatterns"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpath.mainOnlyProjectHasTestOnlyDependency"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpath.multipleOutputLocations"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpath.outputOverlappingAnotherSource"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentPrefixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentSuffixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.camelCaseMatch"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.deprecationCheck"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.discouragedReferenceCheck"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldPrefixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldSuffixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.forbiddenReferenceCheck"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.forceImplicitQualification"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localPrefixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localSuffixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFieldPrefixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFieldSuffixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldPrefixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldSuffixes"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.subwordMatch"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.suggestStaticImports"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.visibilityCheck"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.inheritNullAnnotations"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.missingNonNullByDefaultAnnotation"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nonnull"
+            value="org.eclipse.jdt.annotation.NonNull"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nonnull.secondary"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nonnullbydefault"
+            value="org.eclipse.jdt.annotation.NonNullByDefault"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nonnullbydefault.secondary"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.notowning"
+            value="org.eclipse.jdt.annotation.NotOwning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nullable"
+            value="org.eclipse.jdt.annotation.Nullable"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nullable.secondary"
+            value=""/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.nullanalysis"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.owning"
+            value="org.eclipse.jdt.annotation.Owning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.annotation.resourceanalysis"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.lambda.genericSignature"
+            value="do not generate"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.methodParameters"
+            value="do not generate"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.shareCommonFinallyBlocks"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
+            value="17"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.unusedLocal"
+            value="preserve"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.useStringConcatFactory"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.validateOperandStack"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
+            value="17"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.debug.lineNumber"
+            value="generate"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.debug.localVariable"
+            value="generate"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.debug.sourceFile"
+            value="generate"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.doc.comment.support"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.emulateJavacBug8031744"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.generateClassFiles"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.ignoreUnnamedModuleForSplitPackage"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.maxProblemPerUnit"
+            value="100"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.annotatedTypeArgumentToUnannotated"
+            value="info"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.annotationSuperInterface"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.APILeak"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.assertIdentifier"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.autoboxing"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.comparingIdentical"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.deadCode"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.deadCodeInTrivialIfStatement"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.deprecation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.deprecationInDeprecatedCode"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.deprecationWhenOverridingDeprecatedMethod"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.discouragedReference"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.emptyStatement"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.enumIdentifier"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.explicitlyClosedAutoCloseable"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.fallthroughCase"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.fatalOptionalError"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.fieldHiding"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.finallyBlockNotCompletingNormally"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.finalParameterBound"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.forbiddenReference"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.hiddenCatchBlock"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.includeNullInfoFromAsserts"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.incompatibleNonInheritedInterfaceMethod"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.incompatibleOwningContract"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.incompleteEnumSwitch"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.indirectStaticAccess"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.insufficientResourceAnalysis"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.invalidJavadoc"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.invalidJavadocTags"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.invalidJavadocTagsDeprecatedRef"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.invalidJavadocTagsNotVisibleRef"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.invalidJavadocTagsVisibility"
+            value="public"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.localVariableHiding"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.memberOfDeprecatedTypeNotDeprecated"
+            value="info"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.methodWithConstructorName"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingDefaultCase"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingDeprecatedAnnotation"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingEnumCaseDespiteDefault"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingHashCodeMethod"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocComments"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocCommentsOverriding"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocCommentsVisibility"
+            value="public"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocTagDescription"
+            value="return_tag"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocTags"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocTagsMethodTypeParameters"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocTagsOverriding"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingJavadocTagsVisibility"
+            value="public"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingOverrideAnnotation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingOverrideAnnotationForInterfaceMethodImplementation"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingSerialVersion"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.missingSynchronizedOnInheritedMethod"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.noEffectAssignment"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.noImplicitStringConversion"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nonExternalizedStringLiteral"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nonnullParameterAnnotationDropped"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nonnullTypeVariableFromLegacyInvocation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nullAnnotationInferenceConflict"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nullReference"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nullSpecViolation"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.nullUncheckedConversion"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.overridingMethodWithoutSuperInvocation"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.overridingPackageDefaultMethod"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.parameterAssignment"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.pessimisticNullAnalysisForFreeTypeVariables"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.possibleAccidentalBooleanAssignment"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.potentiallyUnclosedCloseable"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.potentialNullReference"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.rawTypeReference"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.redundantNullAnnotation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.redundantNullCheck"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.redundantSpecificationOfTypeArguments"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.redundantSuperinterface"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.reportMethodCanBePotentiallyStatic"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.reportMethodCanBeStatic"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.specialParameterHidingField"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.staticAccessReceiver"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.suppressOptionalErrors"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.suppressWarnings"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.suppressWarningsNotFullyAnalysed"
+            value="info"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.syntacticNullAnalysisForFields"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.syntheticAccessEmulation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.tasks"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.terminalDeprecation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.typeParameterHiding"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unavoidableGenericTypeProblems"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.uncheckedTypeOperation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unclosedCloseable"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.undocumentedEmptyBlock"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unhandledWarningToken"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.uninternedIdentityComparison"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unlikelyCollectionMethodArgumentType"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unlikelyCollectionMethodArgumentTypeStrict"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unlikelyEqualsArgumentType"
+            value="info"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unnecessaryElse"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unnecessaryTypeCheck"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unqualifiedFieldAccess"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unstableAutoModuleName"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedDeclaredThrownException"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedDeclaredThrownExceptionExemptExceptionAndThrowable"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedDeclaredThrownExceptionIncludeDocCommentReference"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedDeclaredThrownExceptionWhenOverriding"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedExceptionParameter"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedImport"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedLabel"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedLambdaParameter"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedLocal"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedObjectAllocation"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedParameter"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedParameterIncludeDocCommentReference"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedParameterWhenImplementingAbstract"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedParameterWhenOverridingConcrete"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedPrivateMember"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedTypeArgumentsForMethodInvocation"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedTypeParameter"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unusedWarningToken"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.varargsArgumentNeedCast"
+            value="warning"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.processAnnotations"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.release"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
+            value="17"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.storeAnnotations"
+            value="disabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.taskCaseSensitive"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.taskPriorities"
+            value="NORMAL,HIGH,NORMAL"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.taskTags"
+            value="TODO,FIXME,XXX"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.computeJavaBuildOrder"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_arrows_in_switch_on_columns"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_assignment_statements_on_columns"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_fields_grouping_blank_lines"
+            value="2147483647"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_selector_in_method_invocation_on_expression_first_line"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_type_members_on_columns"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_variable_declarations_on_columns"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.align_with_spaces"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_additive_operator"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_enum_constant"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_field"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_local_variable"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_method"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_package"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_parameter"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_annotations_on_type"
+            value="49"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_enum_constant"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_assertion_message"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_assignment"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_bitwise_operator"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_compact_if"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_compact_loops"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_conditional_expression"
+            value="80"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_conditional_expression_chain"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_enum_constants"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_expressions_in_array_initializer"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_expressions_in_for_loop_header"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_expressions_in_switch_case_with_arrow"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_expressions_in_switch_case_with_colon"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_logical_operator"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_method_declaration"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_module_statements"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_multiple_fields"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_multiplicative_operator"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_parameterized_type_references"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_parameters_in_constructor_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_permitted_types_in_type_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_record_components"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_relational_operator"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_resources_in_try"
+            value="80"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_shift_operator"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_string_concatenation"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_superclass_in_type_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_enum_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_record_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_type_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_switch_case_with_arrow"
+            value="20"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_constructor_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_method_declaration"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_type_annotations"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_type_arguments"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_type_parameters"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_union_type_in_multicatch"
+            value="16"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_after_imports"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_after_last_class_body_declaration"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_after_package"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_abstract_method"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_field"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_first_class_body_declaration"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_imports"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_member_type"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_method"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_new_chunk"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_package"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_between_import_groups"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_between_statement_group_in_switch"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_between_type_declarations"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_annotation_type_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_anonymous_type_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_array_initializer"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_block"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_block_in_case"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_block_in_case_after_arrow"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_enum_constant"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_enum_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_lambda_body"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_method_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_record_constructor"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_record_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_switch"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_type_declaration"
+            value="end_of_line"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.align_tags_descriptions_grouped"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.align_tags_names_descriptions"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.clear_blank_lines_in_block_comment"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.clear_blank_lines_in_javadoc_comment"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.count_line_length_from_starting_position"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_block_comments"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_header"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_html"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_javadoc_comments"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_line_comments"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_markdown_comments"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_source_code"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_parameter_description"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_root_tags"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_tag_description"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.insert_new_line_before_root_tags"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.insert_new_line_between_different_tags"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.insert_new_line_for_parameter"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.javadoc_do_not_separate_block_tags"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.line_length"
+            value="80"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.new_lines_at_block_boundaries"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.new_lines_at_javadoc_boundaries"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.preserve_white_space_between_code_and_line_comments"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.compact_else_if"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.continuation_indentation"
+            value="2"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer"
+            value="2"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.disabling_tag"
+            value="@formatter:off"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.enabling_tag"
+            value="@formatter:on"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.format_guardian_clause_on_one_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.format_line_comment_starting_on_first_column"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_annotation_declaration_header"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_enum_constant_header"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_enum_declaration_header"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_record_header"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_type_header"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_breaks_compare_to_cases"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_empty_lines"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_statements_compare_to_block"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_statements_compare_to_body"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_cases"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_switch"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indentation.size"
+            value="4"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_enum_constant"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_field"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_local_variable"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_method"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_package"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_parameter"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_type"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_label"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_opening_brace_in_array_initializer"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_type_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_at_end_of_file_if_missing"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_catch_in_try_statement"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_closing_brace_in_array_initializer"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_else_in_if_statement"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_finally_in_try_statement"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_while_in_do_statement"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_additive_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_and_in_type_parameter"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_arrow_in_switch_case"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_arrow_in_switch_default"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_assignment_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_at_in_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_at_in_annotation_type_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_bitwise_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_angle_bracket_in_type_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_angle_bracket_in_type_parameters"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_brace_in_block"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_paren_in_cast"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_assert"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_case"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_conditional"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_for"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_labeled_statement"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_allocation_expression"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_annotation"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_array_initializer"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_parameters"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_throws"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_enum_constant_arguments"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_enum_declarations"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_explicitconstructorcall_arguments"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_for_increments"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_for_inits"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_parameters"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_throws"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_invocation_arguments"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_multiple_field_declarations"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_multiple_local_declarations"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_parameterized_type_reference"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_permitted_types"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_record_components"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_superinterfaces"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_switch_case_expressions"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_type_arguments"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_type_parameters"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_ellipsis"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_lambda_arrow"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_logical_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_multiplicative_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_not_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_parameterized_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_type_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_type_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_brace_in_array_initializer"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_bracket_in_array_allocation_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_bracket_in_array_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_cast"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_catch"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_constructor_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_enum_constant"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_for"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_if"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_invocation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_parenthesized_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_record_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_switch"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_synchronized"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_try"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_while"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_postfix_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_prefix_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_question_in_conditional"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_question_in_wildcard"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_relational_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_semicolon_in_for"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_semicolon_in_try_resources"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_shift_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_string_concatenation"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_unary_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_additive_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_and_in_type_parameter"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_arrow_in_switch_case"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_arrow_in_switch_default"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_assignment_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_at_in_annotation_type_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_bitwise_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_angle_bracket_in_parameterized_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_angle_bracket_in_type_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_angle_bracket_in_type_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_brace_in_array_initializer"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_bracket_in_array_allocation_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_bracket_in_array_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_cast"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_catch"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_constructor_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_enum_constant"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_for"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_if"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_invocation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_parenthesized_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_record_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_switch"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_synchronized"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_try"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_while"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_assert"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_case"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_conditional"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_default"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_for"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_colon_in_labeled_statement"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_allocation_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_array_initializer"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_throws"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_enum_constant_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_enum_declarations"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_explicitconstructorcall_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_for_increments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_for_inits"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_declaration_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_declaration_throws"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_invocation_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_multiple_field_declarations"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_multiple_local_declarations"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_parameterized_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_permitted_types"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_record_components"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_superinterfaces"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_switch_case_expressions"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_type_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_type_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_ellipsis"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_lambda_arrow"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_logical_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_multiplicative_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_angle_bracket_in_parameterized_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_angle_bracket_in_type_arguments"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_angle_bracket_in_type_parameters"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_annotation_type_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_anonymous_type_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_array_initializer"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_block"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_constructor_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_enum_constant"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_enum_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_method_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_record_constructor"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_record_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_switch"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_type_declaration"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_allocation_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_annotation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_annotation_type_member_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_catch"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_constructor_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_enum_constant"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_for"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_if"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_invocation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_parenthesized_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_record_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_switch"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_synchronized"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_try"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_while"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_parenthesized_expression_in_return"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_parenthesized_expression_in_throw"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_postfix_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_prefix_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_question_in_conditional"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_question_in_wildcard"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_relational_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_semicolon"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_semicolon_in_for"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_semicolon_in_try_resources"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_shift_operator"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_string_concatenation"
+            value="insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_unary_operator"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_brackets_in_array_type_reference"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_braces_in_array_initializer"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_brackets_in_array_allocation_expression"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_annotation_type_member_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_constructor_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_enum_constant"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_method_declaration"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_method_invocation"
+            value="do not insert"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.join_line_comments"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.join_lines_in_comments"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.join_wrapped_lines"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_annotation_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_anonymous_type_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_code_block_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_empty_array_initializer_on_one_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_enum_constant_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_enum_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_if_then_body_block_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_imple_if_on_one_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_lambda_body_block_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_loop_body_block_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_method_body_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_record_constructor_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_record_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_simple_do_while_body_on_same_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_simple_for_body_on_same_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_simple_getter_setter_on_one_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_simple_while_body_on_same_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_switch_body_block_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_switch_case_with_arrow_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_then_statement_on_same_line"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_type_declaration_on_one_line"
+            value="one_line_never"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.lineSplit"
+            value="120"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.never_indent_block_comments_on_first_column"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.never_indent_line_comments_on_first_column"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_after_code_block"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_at_beginning_of_code_block"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_at_beginning_of_method_body"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_at_end_of_code_block"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_at_end_of_method_body"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_blank_lines_before_code_block"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve"
+            value="1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_annotation"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_catch_clause"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_enum_constant_declaration"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_for_statment"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_if_while_statement"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_lambda_declaration"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_method_delcaration"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_method_invocation"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_switch_statement"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.parentheses_positions_in_try_clause"
+            value="common_lines"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.put_empty_statement_on_new_line"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.tabulation.char"
+            value="tab"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.tabulation.size"
+            value="4"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.text_block_indentation"
+            value="0"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.use_on_off_tags"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.use_tabs_only_for_leading_indentations"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_additive_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_assertion_message_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_assignment_operator"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_bitwise_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_conditional_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_logical_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_multiplicative_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_or_operator_multicatch"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_relational_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_shift_operator"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_string_concatenation"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_before_switch_case_arrow_operator"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_outer_expressions_when_nested"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.incompatibleJDKLevel"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.incompleteClasspath"
+            value="error"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.javaFormatter"
+            value="org.eclipse.jdt.core.defaultJavaFormatter"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.timeoutForParameterNameFromAttachedJavadoc"
+            value="50"/>
       </setupTask>
     </setupTask>
     <stream
         name="master"
         label="master"/>
-    <description>Eclipse Bash Editor</description>
+    <description>NovumRGI Project</description>
   </project>
-  <project name="test.novumrgi"
-      label="Test NovumRGI">
-    <stream
-        name="master"
-        label="master"/>
-    <description>NovumRGI Custom</description>
-  </project>
-  <description>Custom project catalog</description>
+  <description>Custom NovumRGI project catalog</description>
   <logicalProjectContainer
       href="org.eclipse.setup#//@projectCatalogs[name='custom.projects']"/>
 </setup:ProjectCatalog>
