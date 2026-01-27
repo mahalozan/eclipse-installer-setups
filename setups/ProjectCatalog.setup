@@ -31,612 +31,12 @@
       <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="launch.configurations">
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          force="true"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml"
-          encoding="UTF-8">
-        <description>launchConfigurationHistory</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchHistory>
-              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;>
-                  &lt;mruHistory/>
-                  &lt;favorites>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;Tomcat 8788 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;WildFly 8787 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                  &lt;/favorites>
-              &lt;/launchGroup>
-              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.profile&quot;>
-                  &lt;mruHistory/>
-                  &lt;favorites/>
-              &lt;/launchGroup>
-              &lt;launchGroup id=&quot;org.eclipse.eclemma.ui.launchGroup.coverage&quot;>
-                  &lt;mruHistory/>
-                  &lt;favorites/>
-              &lt;/launchGroup>
-              &lt;launchGroup id=&quot;org.eclipse.ui.externaltools.launchGroup&quot;>
-                  &lt;mruHistory/>
-                  &lt;favorites/>
-              &lt;/launchGroup>
-              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.run&quot;>
-                  &lt;mruHistory/>
-                  &lt;favorites>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN clean&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN HibernateSchemaCreate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (no hibernate update)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, -DskipTest)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN Run Acceptance Tests&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN test (single class)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations create&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations sort&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations merge&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations integrate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
-                  &lt;/favorites>
-              &lt;/launchGroup>
-          &lt;/launchHistory>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN clean.launch"
-          encoding="UTF-8">
-        <description>MVN clean</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;4&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute
-                  key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot;
-                  value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN HibernateSchemaCreate.launch"
-          encoding="UTF-8">
-        <description>MVN HibernateSchemaCreate</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean process-classes&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;HibernateSchemaCreate&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (no hibernate update).launch"
-          encoding="UTF-8">
-        <description>MVN install (no hibernate update)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;hibernate_schema_update_disabled&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, -DskipTest).launch"
-          encoding="UTF-8">
-        <description>MVN install (offline, -DskipTest)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
-                  &lt;listEntry value=&quot;skipTests=true&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests) (!VgerAI).launch"
-          encoding="UTF-8">
-        <description>MVN install (offline, skip tests) (!VgerAI)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests).launch"
-          encoding="UTF-8">
-        <description>MVN install (offline, skip tests)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline).launch"
-          encoding="UTF-8">
-        <description>MVN install (offline)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests) (!VgerAI).launch"
-          encoding="UTF-8">
-        <description>MVN install (skip tests) (!VgerAI)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests).launch"
-          encoding="UTF-8">
-        <description>MVN install (skip tests)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install.launch"
-          encoding="UTF-8">
-        <description>MVN install</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN Run Acceptance Tests.launch"
-          encoding="UTF-8">
-        <description>MVN Run Acceptance Tests</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;RunAcceptanceTests&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN test (single class).launch"
-          encoding="UTF-8">
-        <description>MVN test (single class)</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;test&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
-                  &lt;listEntry value=&quot;novum.debug=true&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations create.launch"
-          encoding="UTF-8">
-        <description>MVN translations create</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:create&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations integrate.launch"
-          encoding="UTF-8">
-        <description>MVN translations integrate</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:integrate&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations merge.launch"
-          encoding="UTF-8">
-        <description>MVN translations merge</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:merge&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations sort.launch"
-          encoding="UTF-8">
-        <description>MVN translations sort</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
-              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
-              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:sort&quot;/>
-              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
-              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
-              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
-              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
-              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
-              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
-              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
-              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
-              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
-              &lt;/listAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/Tomcat 8788 debug.launch"
-          encoding="UTF-8">
-        <description>Tomcat 8788 debug</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
-              &lt;/listAttribute>
-              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
-              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
-                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
-                  &lt;mapEntry key=&quot;port&quot; value=&quot;8788&quot;/>
-              &lt;/mapAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="STARTUP MANUAL"
-          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/WildFly 8787 debug.launch"
-          encoding="UTF-8">
-        <description>WildFly 8787 debug</description>
-        <content>
-          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
-          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
-              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
-              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
-                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
-              &lt;/listAttribute>
-              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
-              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
-                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
-                  &lt;mapEntry key=&quot;port&quot; value=&quot;8787&quot;/>
-              &lt;/mapAttribute>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
-              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
-          &lt;/launchConfiguration>
-
-        </content>
-      </setupTask>
-      <description>Creating Launch Configurations</description>
+        xsi:type="setup:VariableTask"
+        name="workspace.location"
+        value=""
+        defaultValue="/home/medusa/eclipse-workspace"
+        label="Workspace location rule">
+      <description>The rule for the absolute folder location where the workspace is located</description>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">
@@ -3014,12 +2414,611 @@
       </setupTask>
     </setupTask>
     <setupTask
-        xsi:type="setup:VariableTask"
-        name="workspace.location"
-        value=""
-        defaultValue="/home/medusa/eclipse-workspace"
-        label="Workspace location rule">
-      <description>The rule for the absolute folder location where the workspace is located</description>
+        xsi:type="setup:CompoundTask"
+        name="launch.configurations">
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN clean.launch"
+          encoding="UTF-8">
+        <description>MVN clean</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;4&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute
+                  key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot;
+                  value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN HibernateSchemaCreate.launch"
+          encoding="UTF-8">
+        <description>MVN HibernateSchemaCreate</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;clean process-classes&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;HibernateSchemaCreate&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (no hibernate update).launch"
+          encoding="UTF-8">
+        <description>MVN install (no hibernate update)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;hibernate_schema_update_disabled&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, -DskipTest).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, -DskipTest)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
+                  &lt;listEntry value=&quot;skipTests=true&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests) (!VgerAI).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, skip tests) (!VgerAI)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline, skip tests)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline).launch"
+          encoding="UTF-8">
+        <description>MVN install (offline)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests) (!VgerAI).launch"
+          encoding="UTF-8">
+        <description>MVN install (skip tests) (!VgerAI)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;!VgerAI&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests).launch"
+          encoding="UTF-8">
+        <description>MVN install (skip tests)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;true&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install.launch"
+          encoding="UTF-8">
+        <description>MVN install</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN Run Acceptance Tests.launch"
+          encoding="UTF-8">
+        <description>MVN Run Acceptance Tests</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;install&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;RunAcceptanceTests&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN test (single class).launch"
+          encoding="UTF-8">
+        <description>MVN test (single class)</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;test&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;>
+                  &lt;listEntry value=&quot;novum.debug=true&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations create.launch"
+          encoding="UTF-8">
+        <description>MVN translations create</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:create&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations integrate.launch"
+          encoding="UTF-8">
+        <description>MVN translations integrate</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:integrate&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations merge.launch"
+          encoding="UTF-8">
+        <description>MVN translations merge</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:merge&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations sort.launch"
+          encoding="UTF-8">
+        <description>MVN translations sort</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.m2e.Maven2LaunchConfigurationType&quot;>
+              &lt;intAttribute key=&quot;M2_COLORS&quot; value=&quot;0&quot;/>
+              &lt;booleanAttribute key=&quot;M2_DEBUG_OUTPUT&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_GOALS&quot; value=&quot;translations:sort&quot;/>
+              &lt;booleanAttribute key=&quot;M2_NON_RECURSIVE&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;M2_OFFLINE&quot; value=&quot;true&quot;/>
+              &lt;stringAttribute key=&quot;M2_PROFILES&quot; value=&quot;&quot;/>
+              &lt;listAttribute key=&quot;M2_PROPERTIES&quot;/>
+              &lt;stringAttribute key=&quot;M2_RUNTIME&quot; value=&quot;apache-maven3&quot;/>
+              &lt;booleanAttribute key=&quot;M2_SKIP_TESTS&quot; value=&quot;false&quot;/>
+              &lt;intAttribute key=&quot;M2_THREADS&quot; value=&quot;1&quot;/>
+              &lt;booleanAttribute key=&quot;M2_UPDATE_SNAPSHOTS&quot; value=&quot;false&quot;/>
+              &lt;stringAttribute key=&quot;M2_USER_SETTINGS&quot; value=&quot;&quot;/>
+              &lt;booleanAttribute key=&quot;M2_WORKSPACE_RESOLUTION&quot; value=&quot;false&quot;/>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.run&quot;/>
+              &lt;/listAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.WORKING_DIRECTORY&quot; value=&quot;$${project_loc}&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/Tomcat 8788 debug.launch"
+          encoding="UTF-8">
+        <description>Tomcat 8788 debug</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
+              &lt;/listAttribute>
+              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
+              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
+                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
+                  &lt;mapEntry key=&quot;port&quot; value=&quot;8788&quot;/>
+              &lt;/mapAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/WildFly 8787 debug.launch"
+          encoding="UTF-8">
+        <description>WildFly 8787 debug</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchConfiguration type=&quot;org.eclipse.jdt.launching.remoteJavaApplication&quot;>
+              &lt;booleanAttribute key=&quot;org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING&quot; value=&quot;false&quot;/>
+              &lt;listAttribute key=&quot;org.eclipse.debug.ui.favoriteGroups&quot;>
+                  &lt;listEntry value=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;/>
+              &lt;/listAttribute>
+              &lt;booleanAttribute key=&quot;org.eclipse.jdt.launching.ALLOW_TERMINATE&quot; value=&quot;false&quot;/>
+              &lt;mapAttribute key=&quot;org.eclipse.jdt.launching.CONNECT_MAP&quot;>
+                  &lt;mapEntry key=&quot;hostname&quot; value=&quot;localhost&quot;/>
+                  &lt;mapEntry key=&quot;port&quot; value=&quot;8787&quot;/>
+              &lt;/mapAttribute>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;&quot;/>
+              &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_CONNECTOR_ID&quot; value=&quot;org.eclipse.jdt.launching.socketAttachConnector&quot;/>
+          &lt;/launchConfiguration>
+
+        </content>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml"
+          encoding="UTF-8">
+        <description>launchConfigurationHistory</description>
+        <content>
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+          &lt;launchHistory>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.debug&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;Tomcat 8788 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;WildFly 8787 debug&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                  &lt;/favorites>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.profile&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.eclemma.ui.launchGroup.coverage&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.ui.externaltools.launchGroup&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites/>
+              &lt;/launchGroup>
+              &lt;launchGroup id=&quot;org.eclipse.debug.ui.launchGroup.run&quot;>
+                  &lt;mruHistory/>
+                  &lt;favorites>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN clean&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN HibernateSchemaCreate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (no hibernate update)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, -DskipTest)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline, skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (offline)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN install (skip tests) (!VgerAI)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN Run Acceptance Tests&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN test (single class)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations create&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations sort&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations merge&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                      &lt;launch memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;launchConfiguration local=&amp;quot;true&amp;quot; path=&amp;quot;MVN translations integrate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&quot;/>
+                  &lt;/favorites>
+              &lt;/launchGroup>
+          &lt;/launchHistory>
+
+        </content>
+      </setupTask>
+      <description>Creating Launch Configurations</description>
     </setupTask>
     <stream
         name="master"
