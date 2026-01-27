@@ -5,10 +5,15 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="index"
     label="index">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/JRE">
+    <reference
+        href="org.eclipse.jres.setup#/"/>
+  </annotation>
+  <productCatalog
+      href="org.eclipse.products.setup#/"/>
   <productCatalog
       href="ProductCatalog.setup#/"/>
-  <productCatalog 
-  	  href="https://raw.githubusercontent.com/eclipse-oomph/oomph/refs/heads/master/setups/org.eclipse.products.setup#"/>
   <projectCatalog
-      href="ProjectCatalog.setup#/" />
+      href="ProjectCatalog.setup#/"/>
 </setup:Index>
