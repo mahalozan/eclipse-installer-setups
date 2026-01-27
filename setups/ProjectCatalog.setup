@@ -36,7 +36,7 @@
       <setupTask
           xsi:type="setup:ResourceCreationTask"
           force="true"
-          targetURL="${workspace.location|uri}/.metadata/.plugins\org.eclipse.debug.ui/launchConfigurationHistory.xml"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml"
           encoding="UTF-8">
         <description>launchConfigurationHistory</description>
         <content>
