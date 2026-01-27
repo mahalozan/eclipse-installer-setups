@@ -2419,7 +2419,7 @@
         name="launch.configurations">
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN clean.launch"
           encoding="UTF-8">
         <description>MVN clean</description>
@@ -2452,7 +2452,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN HibernateSchemaCreate.launch"
           encoding="UTF-8">
         <description>MVN HibernateSchemaCreate</description>
@@ -2483,7 +2483,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (no hibernate update).launch"
           encoding="UTF-8">
         <description>MVN install (no hibernate update)</description>
@@ -2514,7 +2514,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, -DskipTest).launch"
           encoding="UTF-8">
         <description>MVN install (offline, -DskipTest)</description>
@@ -2547,7 +2547,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests) (!VgerAI).launch"
           encoding="UTF-8">
         <description>MVN install (offline, skip tests) (!VgerAI)</description>
@@ -2578,7 +2578,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline, skip tests).launch"
           encoding="UTF-8">
         <description>MVN install (offline, skip tests)</description>
@@ -2609,7 +2609,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (offline).launch"
           encoding="UTF-8">
         <description>MVN install (offline)</description>
@@ -2640,7 +2640,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests) (!VgerAI).launch"
           encoding="UTF-8">
         <description>MVN install (skip tests) (!VgerAI)</description>
@@ -2671,7 +2671,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install (skip tests).launch"
           encoding="UTF-8">
         <description>MVN install (skip tests)</description>
@@ -2702,7 +2702,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN install.launch"
           encoding="UTF-8">
         <description>MVN install</description>
@@ -2733,7 +2733,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN Run Acceptance Tests.launch"
           encoding="UTF-8">
         <description>MVN Run Acceptance Tests</description>
@@ -2764,7 +2764,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN test (single class).launch"
           encoding="UTF-8">
         <description>MVN test (single class)</description>
@@ -2797,7 +2797,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations create.launch"
           encoding="UTF-8">
         <description>MVN translations create</description>
@@ -2828,7 +2828,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations integrate.launch"
           encoding="UTF-8">
         <description>MVN translations integrate</description>
@@ -2859,7 +2859,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations merge.launch"
           encoding="UTF-8">
         <description>MVN translations merge</description>
@@ -2890,7 +2890,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/MVN translations sort.launch"
           encoding="UTF-8">
         <description>MVN translations sort</description>
@@ -2921,7 +2921,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/Tomcat 8788 debug.launch"
           encoding="UTF-8">
         <description>Tomcat 8788 debug</description>
@@ -2945,7 +2945,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.core/.launches/WildFly 8787 debug.launch"
           encoding="UTF-8">
         <description>WildFly 8787 debug</description>
@@ -2969,7 +2969,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCreationTask"
-          excludedTriggers="MANUAL"
+          excludedTriggers="STARTUP MANUAL"
           targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml"
           encoding="UTF-8">
         <description>launchConfigurationHistory</description>
