@@ -3013,6 +3013,14 @@
             value="50"/>
       </setupTask>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="workspace.location"
+        value=""
+        defaultValue="/home/medusa/eclipse-workspace"
+        label="Workspace location rule">
+      <description>The rule for the absolute folder location where the workspace is located</description>
+    </setupTask>
     <stream
         name="master"
         label="master"/>

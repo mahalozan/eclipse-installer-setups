@@ -43,7 +43,8 @@
   </annotation>
   <setupTask
       xsi:type="setup:InstallationTask"
-      id="installation"/>
+      id="installation"
+      location="/opt/novum"/>
   <setupTask
       xsi:type="setup.p2:P2Task">
     <requirement
