@@ -46,7 +46,8 @@
       id="installation"
       location="/opt/novum"/>
   <setupTask
-      xsi:type="setup.p2:P2Task">
+      xsi:type="setup.p2:P2Task"
+      licenseConfirmationDisabled="true">
     <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
     <repository
