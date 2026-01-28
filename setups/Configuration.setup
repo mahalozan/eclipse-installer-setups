@@ -16,14 +16,14 @@
       name="com.rgigroup.installation"
       label="NovumRGI Development Environment Installation">
     <productVersion
-        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='oomph']/@streams[name='master']"/>
+        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.jee']/@versions[name='latest']"/>
     <description>The NovumRGI Development Environment installation provides a development environment.</description>
   </installation>
   <workspace
       name="com.rgigroup.workspace"
       label="NovumRGI Workspace Configuration">
     <stream
-        href="Project.setup#/"/>
+        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='oomph']/@streams[name='master']"/>
     <description>The NovumRGI Configuration workspace.</description>
   </workspace>
   <description></description>
