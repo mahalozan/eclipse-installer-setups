@@ -16,7 +16,7 @@
       name="com.rgigroup.installation"
       label="NovumRGI Development Environment Installation">
     <productVersion
-        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.jee']/@versions[name='2025-09']"/>
+        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='oomph']/@streams[name='master']"/>
     <description>The NovumRGI Development Environment installation provides a development environment.</description>
   </installation>
   <workspace
