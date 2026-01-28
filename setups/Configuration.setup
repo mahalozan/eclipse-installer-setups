@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    label="NovumRGI Development Environment">
+    label="Oomph Development Environment">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -13,18 +13,35 @@
     </detail>
   </annotation>
   <installation
-      name="com.rgigroup.installation"
-      label="NovumRGI Development Environment Installation">
+      name="oomph.development.environment.installation"
+      label="Oomph Development Environment Installation">
     <productVersion
-        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.jee']/@versions[name='latest']"/>
-    <description>The NovumRGI Development Environment installation provides a development environment.</description>
+        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.committers']/@versions[name='latest']"/>
+    <description>The Oomph Development Environment installation provides a full development environment for working on Oomph.</description>
   </installation>
   <workspace
-      name="com.rgigroup.workspace"
-      label="NovumRGI Workspace Configuration">
+      name="oomph.development.environment.workspace"
+      label="Oomph Development Environment Workspace">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="eclipse.target.platform"
+        value="${eclipse.target.platform.latest}"/>
     <stream
         href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='oomph']/@streams[name='master']"/>
-    <description>The NovumRGI Configuration workspace.</description>
+    <description>The Oomph Development Environment workspace contains all features and plugins from the Oomph Git repository.</description>
   </workspace>
-  <description></description>
+  <description>
+    &lt;p>
+    The &lt;a href=&quot;https://projects.eclipse.org/projects/tools.oomph&quot;/>Oomph&lt;/a> Development Environment configuration provisions a dedicated development environment 
+    for the complete set of source projects used by &lt;a href=&quot;https://ci.eclipse.org/oomph/&quot;>Oomph's build server&lt;/a> 
+    to produce &lt;a href=&quot;https://download.eclipse.org/oomph/updates/?d&quot;>Oomph's update sites&lt;/a>.
+    &lt;/p>
+    &lt;p>
+    All the source projects from &lt;a href=&quot;https://github.com/eclipse-oomph/oomph.git&quot;>Oomph's Git Repository&lt;/a>
+    are available, organized into working sets, and ready for contribution.
+    &lt;/p>
+    &lt;/p>
+    Please &lt;a href=&quot;https://eclipse.dev/oomph/?file=Eclipse_Platform_SDK_Provisioning.md&quot;>read the analogous tutorial instructions&lt;/a> for the Eclipse Platform SDK's configuration for more details.
+    &lt;/p>
+  </description>
 </setup:Configuration>
