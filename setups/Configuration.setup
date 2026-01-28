@@ -15,7 +15,7 @@
       name="birt.installation"
       label="BIRT Installation">
     <productVersion
-        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.committers']/@versions[name='latest']"/>
+        href="index:/org.eclipse.setup#//@productCatalogs[name='org.eclipse.products']/@products[name='epp.package.jee']/@versions[name='latest']"/>
     <description>The tools needed for BIRT development.</description>
   </installation>
   <workspace
