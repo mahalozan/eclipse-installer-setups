@@ -30,6 +30,14 @@
         vmArguments="-Djava.io.tmpdir=/tmp -Dopenejb=true -Xms2048m -Xmx4096m">
       <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
+    <!-- Eclipse IDE JVM Configuration -->
+    <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-vm"
+      value="/home/medusa/.sdkman/candidates/java/21.0.9-tem/bin/java"
+      vm="true">
+    <description>Set the JVM for running Eclipse IDE to Java 21.0.9-tem from SDKMAN</description>
+    </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
         name="workspace.location"
